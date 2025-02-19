@@ -1,0 +1,173 @@
+/* Общие стили */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2e, #23222d);
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+/* Хедер */
+.header {
+    background: rgba(23, 23, 25, 0.9);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.header__logo {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.header__logo:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Баннер */
+.banner {
+    text-align: center;
+    padding: 60px 20px;
+    background: 
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)),
+        url('icons/banner.png') no-repeat center / cover;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(255, 230, 0, 0.3);
+    max-width: 90%;
+    margin: 20px;
+}
+
+.banner__title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffd700, #ff8c00);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.banner__description {
+    font-size: 18px;
+    margin: 15px 0;
+    opacity: 0.8;
+}
+
+/* Кнопка */
+.button {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 153, 0, 0.5);
+}
+
+.button:hover {
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    transform: scale(1.05);
+}
+
+/* Игровая зона */
+.games {
+    padding: 40px 0;
+}
+
+.games__list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Карточки игр */
+.game-card {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    top: 0;
+    left: -100%;
+    transform: skewX(-30deg);
+    transition: all 0.5s ease-in-out;
+}
+
+.game-card:hover::before {
+    left: 100%;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(255, 230, 0, 0.4);
+}
+
+.game-card--crash {
+    background: linear-gradient(29deg, rgba(255, 0, 0, 0.8), rgba(255, 255, 255, 0.2)), url('icons/crash.png') no-repeat center / cover;
+}
+
+.game-card--chicken {
+    background: linear-gradient(29deg, rgba(255, 230, 0, 0.8), rgba(255, 255, 255, 0.2)), url('icons/chicken_block.png') no-repeat center / cover;
+}
+
+/* Нижнее меню */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(23, 23, 25, 0.9);
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu__icon {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(0.8);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.menu__button:hover .menu__icon {
+    filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.5));
+    transform: scale(1.1);
+}
