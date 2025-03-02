@@ -124,17 +124,24 @@ body {
     left: 100%;
 }
 
-.game-card:hover {
+.game-card--crash:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 25px rgba(255, 230, 0, 0.4);
+    cursor: pointer;
+}
+
+.game-card--chicken:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(255, 38, 0, 0.4);
+    cursor: pointer;
 }
 
 .game-card--crash {
-    background: linear-gradient(29deg, rgba(255, 0, 0, 0.8), rgba(255, 255, 255, 0.2)), url('icons/crash.png') no-repeat center / cover;
+    background: linear-gradient(-29deg, rgba(255, 230, 0, 0.6), rgba(255, 255, 255, 0.2)), url('icons/crash_button.png') no-repeat center / cover;
 }
 
 .game-card--chicken {
-    background: linear-gradient(29deg, rgba(255, 230, 0, 0.8), rgba(255, 255, 255, 0.2)), url('icons/chicken_block.png') no-repeat center / cover;
+    background: linear-gradient(-29deg, rgba(255, 0, 0, 0.6), rgba(255, 255, 255, 0.2)), url('icons/chicken_button.png') no-repeat center / cover;
 }
 
 /* Нижнее меню */
