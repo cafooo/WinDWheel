@@ -150,6 +150,9 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    height: 6%;
+    justify-content: space-around;
+    align-items: center;
     background: rgba(23, 23, 25, 0.9);
     padding: 15px 0;
     backdrop-filter: blur(10px);
@@ -157,14 +160,8 @@ body {
 
 .menu {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.menu__button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .menu__icon {
@@ -172,9 +169,4 @@ body {
     height: 40px;
     filter: brightness(0) invert(0.8);
     transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.menu__button:hover .menu__icon {
-    filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.5));
-    transform: scale(1.1);
 }
