@@ -11,12 +11,11 @@ body {
     padding-bottom: 100px;
 }
 
-/* Хедер */
 .header {
     background: rgba(23, 23, 25, 0.9);
-    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
+    width: 100%;
     display: flex;
     justify-content: center;
     backdrop-filter: blur(10px);
@@ -38,7 +37,7 @@ body {
     padding: 60px 20px;
     background: 
         linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)),
-        url('icons/banner.png') no-repeat center / cover;
+        url("./icons/banner.png") no-repeat center / cover;
     border-radius: 20px;
     box-shadow: 0px 10px 30px rgba(255, 230, 0, 0.3);
     max-width: 90%;
@@ -56,13 +55,14 @@ body {
 
 .banner__description {
     font-size: 18px;
-    margin: 15px 0;
+    margin-bottom: 30px;
     opacity: 0.8;
 }
 
 /* Кнопка */
 .button {
     background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #000;
     border: none;
     padding: 15px 30px;
     font-size: 18px;
@@ -71,6 +71,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 10px rgba(255, 153, 0, 0.5);
+    text-decoration: none;
 }
 
 .button:hover {
@@ -137,11 +138,11 @@ body {
 }
 
 .game-card--crash {
-    background: linear-gradient(-29deg, rgba(255, 230, 0, 0.6), rgba(255, 255, 255, 0.2)), url('icons/crash_button.png') no-repeat center / cover;
+    background: linear-gradient(-29deg, rgba(255, 230, 0, 0.6), rgba(255, 255, 255, 0.2)), url("./icons/crash_button.png") no-repeat center / cover;
 }
 
 .game-card--chicken {
-    background: linear-gradient(-29deg, rgba(255, 0, 0, 0.6), rgba(255, 255, 255, 0.2)), url('icons/chicken_button.png') no-repeat center / cover;
+    background: linear-gradient(-29deg, rgba(255, 0, 0, 0.6), rgba(255, 255, 255, 0.2)), url("./icons/chicken_button.png") no-repeat center / cover;
 }
 
 /* Нижнее меню */
@@ -153,8 +154,8 @@ body {
     height: 6%;
     justify-content: space-around;
     align-items: center;
-    background: rgba(23, 23, 25, 0.9);
-    padding: 15px 0;
+    background: #171719e6;
+    padding: 10px 0;
     backdrop-filter: blur(10px);
 }
 
@@ -164,9 +165,60 @@ body {
     align-items: center;
 }
 
+.menu__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .menu__icon {
     width: 40px;
     height: 40px;
     filter: brightness(0) invert(0.8);
     transition: filter 0.3s ease, transform 0.3s ease;
 }
+
+.menu__button:hover .menu__icon {
+    filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.5));
+    transform: scale(1.1);
+}
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* фоновый цвет */
+    background: #353535;
+    z-index: 1001;
+  }
+  
+  .preloader__image {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+  }
+  
+  @keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loaded_hiding .preloader {
+    transition: 0.5s opacity;
+    opacity: 0;
+  }
+  
+  .loaded .preloader {
+    display: none;
+  }

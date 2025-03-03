@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinDWheel Crash</title>
+    <link rel="stylesheet" href="{% static 'miniapp/crash_styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'miniapp/icons/logo.png' %}" alt="Casino Logo" class="header__logo">
+        </a>
+    </header>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">🔥 CRASH 🔥</h1>
+        </header>
+
+        <main class="game-area">
+            <div class="graph-container">
+                <canvas id="crashGraph"></canvas>
+                <div class="multiplier">x1.00</div>
+                <button class="bet-button">BET</button>
+            </div>
+        </main>
+
+        <footer class="game-footer">
+            <p class="footer-text">Ставь и лови множитель, пока не поздно!</p>
+        </footer>
+    </div>
+
+    <footer class="footer">
+        <nav class="menu">
+            <a class="menu__button" href="{% url 'crash' %}">
+                <img src="{% static 'miniapp/icons/chart_footer_button.png' %}" alt="Chart" class="menu__icon">
+            </a>
+            <a class="menu__button">
+                <img src="{% static 'miniapp/icons/chicken_footer_button.png' %}" alt="Chicken" class="menu__icon">
+            </a>
+            <a class="menu__button" href="{% url 'profile' %}">
+                <img src="{% static 'miniapp/icons/menu_footer_button.png' %}" alt="Menu" class="menu__icon">
+            </a>
+        </nav>
+    </footer>
+</body>
+<div class="preloader">
+    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="currentColor"
+        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+      </path>
+    </svg>
+  </div>
+  <script>
+    window.onload = function () {
+      document.body.classList.add('loaded_hiding');
+      window.setTimeout(function () {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loaded_hiding');
+      }, 500);
+    }
+  </script>
+</html>

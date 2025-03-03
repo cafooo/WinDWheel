@@ -1,0 +1,181 @@
+/* Общие стили */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2e, #23222d);
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+/* Хедер */
+.header {
+    background: rgba(23, 23, 25, 0.9);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.header__logo {
+    width: 50px;
+    height: 50px;
+}
+
+.header__logo:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+/* Профиль */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    width: 90%;
+}
+
+.profile__title {
+    font-weight: bold;
+}
+
+.profile__block {
+    background: rgba(23, 23, 25, 0.9);
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__button--deposit {
+    padding-right: 5px;
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 40%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.profile__button--withdraw {
+    padding-left: 5px;
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 40%;
+    border-radius: 10px;
+    text-overflow: clip;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.profile__button--deposit:hover {
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    transform: scale(1.05);
+}
+
+.profile__button--withdraw:hover {
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    transform: scale(1.05);
+}
+
+.profile__balance {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+
+/* Нижнее меню */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6%;
+    justify-content: space-around;
+    align-items: center;
+    background: #171719e6;
+    padding: 10px 0;
+    backdrop-filter: blur(10px);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu__icon {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(0.8);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.menu__button:hover .menu__icon {
+    filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.5));
+    transform: scale(1.1);
+}
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* фоновый цвет */
+    background: #353535;
+    z-index: 1001;
+  }
+  
+  .preloader__image {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+  }
+  
+  @keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loaded_hiding .preloader {
+    transition: 0.5s opacity;
+    opacity: 0;
+  }
+  
+  .loaded .preloader {
+    display: none;
+  }

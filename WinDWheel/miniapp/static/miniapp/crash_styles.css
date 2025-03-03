@@ -8,9 +8,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
     padding-bottom: 100px;
 }
+
 .header {
     background: rgba(23, 23, 25, 0.9);
     padding-top: 20px;
@@ -19,7 +19,6 @@ body {
     display: flex;
     justify-content: center;
     backdrop-filter: blur(10px);
-
 }
 
 .header__logo {
@@ -28,8 +27,13 @@ body {
     transition: transform 0.3s ease;
 }
 
+.header__logo:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
 /* Основной контейнер */
 .game-container {
+    position: relative;
     text-align: center;
     width: 90%;
     max-width: 700px;
@@ -47,7 +51,7 @@ body {
 .graph-container {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 500px;
     background: linear-gradient(135deg, #222, #333);
     border-radius: 20px;
     overflow: hidden;
@@ -57,10 +61,10 @@ body {
 /* Множитель */
 .multiplier {
     position: absolute;
-    bottom: 20px;
+    bottom: 50%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 28px;
+    font-size: 45px;
     font-weight: bold;
     color: #00ff88;
     /* Добавляем эффект Bloom (свечение) для текста с коэффицентом */
@@ -68,30 +72,32 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-/* Кнопка Cash Out */
-.cashout-button {
+/* Кнопка Bet/Cash Out */
+.bet-button {
+    position: absolute;
+    max-width: 180px;
+    max-height: 80px;
+    top: 75%;
+    right: 5%;
     margin-top: 20px;
-    
-    background: linear-gradient(45deg, #ff0000, #ff5500);
+    background: linear-gradient(45deg, #41ce00, #88ff00);
     border: none;
     padding: 15px 40px;
-    font-size: 22px;
+    font-size: 35px;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
     color: white;
-    box-shadow: 0px 4px 10px rgba(255, 85, 0, 0.5);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
-.cashout-button:hover {
-    /* Добавляем сочный градиент в ярких красных оттенках при наведении на кнопку вывода */
-    background: linear-gradient(45deg, #ff5500, #ff9900);
+.bet-button:hover {
+    background: linear-gradient(45deg, #bbff00, #d9ff00);
     transform: scale(1.05);
-    box-shadow: 0px 6px 15px rgba(255, 85, 0, 0.6);
+    box-shadow: 0px 6px 15px rgba(81, 255, 0, 0.6);
 }
 
-.cashout-button:active {
+.bet-button:active {
     transform: scale(0.95);
 }
 
@@ -139,3 +145,41 @@ body {
     transform: scale(1.1);
 }
 
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* фоновый цвет */
+    background: #353535;
+    z-index: 1001;
+  }
+  
+  .preloader__image {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+  }
+  
+  @keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loaded_hiding .preloader {
+    transition: 0.5s opacity;
+    opacity: 0;
+  }
+  
+  .loaded .preloader {
+    display: none;
+  }
