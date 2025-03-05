@@ -47,7 +47,7 @@ body {
 .profile__block {
     background: rgba(23, 23, 25, 0.9);
     padding: 20px;
-    width: 70%;
+    width: 90%;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -57,32 +57,32 @@ body {
 }
 
 .profile__button--deposit {
-    padding-right: 5px;
+    margin-right: 10px;
     background: linear-gradient(45deg, #ffcc00, #ff9900);
     border: none;
     padding: 10px 15px;
     font-size: 18px;
     font-weight: bold;
-    width: 40%;
+    width: 45%;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width: 120px;   
 }
 
 .profile__button--withdraw {
-    padding-left: 5px;
+    margin-left: 10px;
     background: linear-gradient(45deg, #ffcc00, #ff9900);
     border: none;
     padding: 10px 15px;
     font-size: 18px;
     font-weight: bold;
-    width: 40%;
+    width: 45%;
     border-radius: 10px;
     text-overflow: clip;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width:  120px;
 }
 
 .profile__button--deposit:hover {

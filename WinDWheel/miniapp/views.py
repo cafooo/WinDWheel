@@ -8,3 +8,4 @@ def crash_game(request):
 
 def profile(request):
     return render(request, 'miniapp/profile.html')
+
