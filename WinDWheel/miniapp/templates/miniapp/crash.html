@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="{% url 'index' %}">
+        <a href="{% url 'index' %}?user_id={{user_id}}">
             <img src="{% static 'miniapp/icons/logo.png' %}" alt="Casino Logo" class="header__logo">
         </a>
     </header>
@@ -34,13 +34,13 @@
 
     <footer class="footer">
         <nav class="menu">
-            <a class="menu__button" href="{% url 'crash' %}">
+            <a class="menu__button" href="{% url 'crash' %}?user_id={{user_id}}">
                 <img src="{% static 'miniapp/icons/chart_footer_button.png' %}" alt="Chart" class="menu__icon">
             </a>
             <a class="menu__button">
                 <img src="{% static 'miniapp/icons/chicken_footer_button.png' %}" alt="Chicken" class="menu__icon">
             </a>
-            <a class="menu__button" href="{% url 'profile' %}">
+            <a class="menu__button" href="{% url 'profile' %}?user_id={{user_id}}">
                 <img src="{% static 'miniapp/icons/menu_footer_button.png' %}" alt="Menu" class="menu__icon">
             </a>
         </nav>
