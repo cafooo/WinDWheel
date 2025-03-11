@@ -191,12 +191,12 @@ body {
     right: 0;
     bottom: 0;
     overflow: hidden;
-    /* фоновый цвет */
     background: #353535;
     z-index: 1001;
+    display: block;
   }
   
-  .preloader__image {
+  .preloader__circle {
     position: relative;
     top: 50%;
     left: 50%;
@@ -204,13 +204,27 @@ body {
     height: 70px;
     margin-top: -35px;
     margin-left: -35px;
-    text-align: center;
-    animation: preloader-rotate 2s infinite linear;
+    border-radius: 50%;
+    border: 5px solid #eecb05;
+    background: transparent;
+    animation: preloader-rotate 2s infinite linear, preloader-scale 1s infinite ease-in-out;
   }
   
   @keyframes preloader-rotate {
     100% {
       transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes preloader-scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
     }
   }
   
