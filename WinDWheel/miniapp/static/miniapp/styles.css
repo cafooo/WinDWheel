@@ -184,51 +184,59 @@ body {
     transform: scale(1.1);
 }
 
+/* Прелоадер */
 .preloader {
     position: fixed;
-    left: 0;
     top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    background: #353535;
-    z-index: 1001;
-    display: block;
-  }
-  
-  .preloader__circle {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 70px;
-    margin-top: -35px;
-    margin-left: -35px;
-    border-radius: 50%;
-    border: 5px solid #eecb05;
-    background: transparent;
-    animation: preloader-rotate 2s infinite linear, preloader-scale 1s infinite ease-in-out;
-  }
-  
-  @keyframes preloader-rotate {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.preloader svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+}
+
+.preloader circle {
+    fill: none;
+    stroke: hsl(49, 97%, 59%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  @keyframes preloader-scale {
+}
+
+@keyframes dash4 {
     0% {
-      transform: scale(1);
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
     }
+
     50% {
-      transform: scale(1.2);
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
     }
+
     100% {
-      transform: scale(1);
+        stroke-dashoffset: -125px;
     }
-  }
-  
-  .loaded_hiding .preloader {
+}
+
+.loaded_hiding .preloader {
     transition: 0.5s opacity;
     opacity: 0;
   }

@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{% static 'miniapp/styles.css' %}">
 </head>
 <body>
+    <div class="preloader">
+        <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+        </svg>
+    </div>
+
     <header class="header">
         <a href="{% url 'index' %}?user_id={{user_id}}">
             <img src="{% static 'miniapp/icons/logo.png' %}" alt="Casino Logo" class="header__logo">
@@ -32,7 +38,7 @@
     </section>
 
     <footer class="footer">
-        <section class="menu">
+        <nav class="menu">
             <a class="menu__button" href="{% url 'crash' %}?user_id={{user_id}}">
                 <img src="{% static 'miniapp/icons/chart_footer_button.png' %}" alt="Chart" class="menu__icon">
             </a>
@@ -44,17 +50,7 @@
             </a>
         </nav>
     </footer>
+
+    <script src="{% static 'miniapp/scripts/preloader.js' %}"></script>
 </body>
-<div class="preloader">
-    <div class="preloader__circle"></div>
-  </div>
-  <script>
-    window.onload = function () {
-      document.body.classList.add('loaded_hiding');
-      window.setTimeout(function () {
-        document.body.classList.add('loaded');
-        document.body.classList.remove('loaded_hiding');
-      }, 500);
-    }
-  </script>
 </html>

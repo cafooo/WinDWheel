@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
 from .models import TelegramUser
+
+
 
 def index(request):
     user_id = request.GET.get('user_id')
@@ -20,12 +21,15 @@ def crash_game(request):
     if user_id is not None:
         try:
             user = TelegramUser.objects.get(user_id=user_id)
-            return render(request, template_name='miniapp/crash.html', context={'user_id': user_id,
-                                                                                'balance': user.balance})
+            return render(request, template_name='miniapp/crash.html', context={
+                'user_id': user_id,
+                'balance': round(user.balance, 2)  # Округляем баланс при отображении
+            })
         except TelegramUser.DoesNotExist:
             return render(request, 'miniapp/error.html', {'message': f"User not found."})
     else:
-        return render(request, 'miniapp/error.html', {'message': "Some of required data is missing. Please provide screenshot of this error and send it to @your_moderation_id."})
+        return render(request, 'miniapp/error.html', 
+                     {'message': "Some of required data is missing. Please provide screenshot of this error and send it to @your_moderation_id."})
 
 
 def profile(request):
@@ -65,3 +69,4 @@ def auto_check_telegram(request):
     else:
         message = "Some of required data is missing. Please provide screenshot of this error and send it to @your_moderation_id."
         return render(request, 'miniapp/error.html', {'message': message})
+
